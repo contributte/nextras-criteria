@@ -1,4 +1,12 @@
-/vendor/
+/.idea
+/vendor
 /composer.lock
-/.phpunit.result.cache
-/.phpunit.cache/
+
+/tests/tmp
+/tests/*.log
+/tests/*.html
+/tests/*.actual
+/tests/*.expected
+
+/coverage.html
+/coverage.xml

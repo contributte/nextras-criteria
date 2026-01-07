@@ -1,7 +1,10 @@
 includes:
-  - vendor/phpstan/phpstan-strict-rules/rules.neon
+	- vendor/contributte/phpstan/phpstan.neon
 
 parameters:
-  level: max
-  paths:
-    - src
+	level: 9
+	phpVersion: 80200
+	fileExtensions:
+		- php
+	paths:
+		- src
