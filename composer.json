@@ -1,0 +1,49 @@
+{
+	"name": "contributte/nextras-criteria",
+	"description": "Criteria pattern for Nextras ORM inspired by Doctrine",
+	"keywords": ["nextras", "orm", "criteria", "filter", "query", "nette"],
+	"type": "library",
+	"license": "BSD-3-Clause",
+	"homepage": "https://github.com/contributte/nextras-criteria",
+	"authors": [
+		{
+			"name": "Contributte",
+			"homepage": "https://contributte.org"
+		}
+	],
+	"require": {
+		"php": ">=8.2"
+	},
+	"require-dev": {
+		"contributte/phpstan": "~0.2.0",
+		"contributte/qa": "~0.4.0",
+		"contributte/tester": "~0.3.0",
+		"nextras/orm": "^5.0.1"
+	},
+	"suggest": {
+		"nextras/orm": "To use criteria with Nextras ORM collections"
+	},
+	"autoload": {
+		"psr-4": {
+			"Contributte\\Criteria\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1.x-dev"
+		}
+	},
+	"config": {
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
