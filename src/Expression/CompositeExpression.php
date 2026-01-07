@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria\Expression;
 
@@ -11,6 +9,7 @@ use InvalidArgumentException;
  */
 final class CompositeExpression implements Expression
 {
+
 	public const TYPE_AND = 'AND';
 	public const TYPE_OR = 'OR';
 
@@ -23,7 +22,8 @@ final class CompositeExpression implements Expression
 	public function __construct(
 		private readonly string $type,
 		array $expressions,
-	) {
+	)
+	{
 		if ($type !== self::TYPE_AND && $type !== self::TYPE_OR) {
 			throw new InvalidArgumentException(sprintf('Invalid composite expression type: %s', $type));
 		}
@@ -49,4 +49,5 @@ final class CompositeExpression implements Expression
 	{
 		return $this->expressions;
 	}
+
 }

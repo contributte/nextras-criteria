@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria\Expression;
 
@@ -9,6 +7,7 @@ namespace Contributte\Criteria\Expression;
  */
 final class Comparison implements Expression
 {
+
 	public const EQ = '=';
 	public const NEQ = '!=';
 	public const LT = '<';
@@ -27,7 +26,8 @@ final class Comparison implements Expression
 		private readonly string $field,
 		private readonly string $operator,
 		private readonly mixed $value,
-	) {
+	)
+	{
 	}
 
 	public function getField(): string
@@ -44,4 +44,5 @@ final class Comparison implements Expression
 	{
 		return $this->value;
 	}
+
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria\Expression;
 
@@ -9,6 +7,7 @@ namespace Contributte\Criteria\Expression;
  */
 final class ExpressionBuilder
 {
+
 	/**
 	 * Creates an AND composite expression.
 	 */
@@ -132,4 +131,5 @@ final class ExpressionBuilder
 	{
 		return new Comparison($field, Comparison::IS_NOT_NULL, null);
 	}
+
 }

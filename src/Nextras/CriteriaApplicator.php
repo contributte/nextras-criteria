@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria\Nextras;
 
@@ -12,18 +10,20 @@ use Contributte\Criteria\Ordering;
 use InvalidArgumentException;
 use Nextras\Orm\Collection\Expression\LikeExpression;
 use Nextras\Orm\Collection\ICollection;
+use Nextras\Orm\Entity\IEntity;
 
 /**
  * Applies Criteria to Nextras ORM ICollection.
  *
- * @template TEntity of \Nextras\Orm\Entity\IEntity
+ * @template TEntity of IEntity
  */
 final class CriteriaApplicator
 {
+
 	/**
 	 * Applies criteria to a collection and returns the filtered collection.
 	 *
-	 * @template T of \Nextras\Orm\Entity\IEntity
+	 * @template T of IEntity
 	 * @param ICollection<T> $collection
 	 * @return ICollection<T>
 	 */
@@ -75,7 +75,7 @@ final class CriteriaApplicator
 
 		throw new InvalidArgumentException(sprintf(
 			'Unsupported expression type: %s',
-			get_class($expression)
+			$expression::class
 		));
 	}
 
@@ -163,4 +163,5 @@ final class CriteriaApplicator
 
 		return $result;
 	}
+
 }

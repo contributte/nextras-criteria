@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria\Expression;
 
@@ -9,4 +7,5 @@ namespace Contributte\Criteria\Expression;
  */
 interface Expression
 {
+
 }

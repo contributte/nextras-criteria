@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria;
 
@@ -11,26 +9,18 @@ use InvalidArgumentException;
  */
 final class Ordering
 {
+
 	public const ASC = 'ASC';
 	public const DESC = 'DESC';
 
 	public function __construct(
 		private readonly string $field,
 		private readonly string $direction = self::ASC,
-	) {
+	)
+	{
 		if ($direction !== self::ASC && $direction !== self::DESC) {
 			throw new InvalidArgumentException(sprintf('Invalid ordering direction: %s', $direction));
 		}
-	}
-
-	public function getField(): string
-	{
-		return $this->field;
-	}
-
-	public function getDirection(): string
-	{
-		return $this->direction;
 	}
 
 	/**
@@ -48,4 +38,15 @@ final class Ordering
 	{
 		return new self($field, self::DESC);
 	}
+
+	public function getField(): string
+	{
+		return $this->field;
+	}
+
+	public function getDirection(): string
+	{
+		return $this->direction;
+	}
+
 }

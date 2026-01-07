@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\Criteria;
 
@@ -15,6 +13,7 @@ use Contributte\Criteria\Expression\ExpressionBuilder;
  */
 final class Criteria
 {
+
 	private static ?ExpressionBuilder $expressionBuilder = null;
 
 	private ?Expression $expression = null;
@@ -165,4 +164,5 @@ final class Criteria
 	{
 		return $this->maxResults;
 	}
+
 }
