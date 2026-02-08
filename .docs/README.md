@@ -6,6 +6,7 @@ Criteria pattern for [Nextras ORM](https://nextras.org/orm), inspired by [Doctri
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Repository Integration](#repository-integration)
 - [Expression Builder](#expression-builder)
 - [Ordering](#ordering)
 - [Pagination](#pagination)
@@ -77,6 +78,53 @@ class UserRepository
             ->fetchAll();
     }
 }
+```
+
+## Repository Integration
+
+Use the `CriteriaRepository` to add criteria support directly to your Nextras ORM repositories.
+
+```php
+use Contributte\Criteria\Nextras\CriteriaRepository;
+use Nextras\Orm\Repository\Repository;
+
+class UserRepository extends Repository
+{
+    use CriteriaRepository;
+
+    public static function getEntityClassNames(): array
+    {
+        return [User::class];
+    }
+}
+```
+
+The trait provides the following methods:
+
+- `findByCriteria(Criteria $criteria): ICollection` - returns a filtered collection
+- `getByCriteria(Criteria $criteria): ?IEntity` - returns a single entity or null
+- `getByCriteriaChecked(Criteria $criteria): IEntity` - returns a single entity or throws
+
+```php
+use Contributte\Criteria\Criteria;
+use Contributte\Criteria\Ordering;
+
+// Find all active adults
+$criteria = Criteria::create()
+    ->where(Criteria::expr()->andX(
+        Criteria::expr()->eq('status', 'active'),
+        Criteria::expr()->gte('age', 18),
+    ))
+    ->orderBy(Ordering::desc('createdAt'))
+    ->setMaxResults(10);
+
+$users = $userRepository->findByCriteria($criteria)->fetchAll();
+
+// Get a single entity
+$criteria = Criteria::create()
+    ->where(Criteria::expr()->eq('email', 'admin@example.com'));
+
+$user = $userRepository->getByCriteria($criteria);
 ```
 
 ## Expression Builder

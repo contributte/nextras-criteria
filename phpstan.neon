@@ -8,3 +8,5 @@ parameters:
 		- php
 	paths:
 		- src
+	ignoreErrors:
+		- identifier: trait.unused
