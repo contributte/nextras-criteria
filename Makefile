@@ -28,7 +28,7 @@ tests:
 .PHONY: coverage
 coverage:
 ifdef GITHUB_ACTION
-	vendor/bin/tester -s -p phpdbg -C --coverage coverage.xml --coverage-src src tests/Cases
+	vendor/bin/tester -s -p php -C --coverage coverage.xml --coverage-src src tests/Cases
 else
-	vendor/bin/tester -s -p phpdbg -C --coverage coverage.html --coverage-src src tests/Cases
+	vendor/bin/tester -s -p php -C --coverage coverage.html --coverage-src src tests/Cases
 endif
