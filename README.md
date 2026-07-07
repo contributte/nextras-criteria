@@ -34,7 +34,7 @@ To install the latest version of `contributte/nextras-criteria` use [Composer](h
 composer require contributte/nextras-criteria
 ```
 
-## Content
+## Contents
 
 - [Usage](#usage)
 - [Expression Builder](#expression-builder)
@@ -254,7 +254,7 @@ $criteria = ActiveUserCriteria::create()
 
 See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-This package is currently maintaining by these authors.
+This package is currently maintained by these authors.
 
 <a href="https://github.com/f3l1x">
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
