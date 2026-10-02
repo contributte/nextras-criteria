@@ -31,10 +31,10 @@ For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State       | Version | Branch   | Nette  | PHP     |
-|-------------|---------|----------|--------|---------|
-| dev         | `^0.1`  | `master` | `3.2+` | `>=8.2` |
-| stable      | `^0.1`  | `master` | `3.2+` | `>=8.2` |
+| State       | Version | Branch   | Nextras ORM     | PHP     |
+|-------------|---------|----------|-----------------|---------|
+| dev         | `^0.1`  | `master` | `^4.0`, `^5.0`   | `>=8.2` |
+| stable      | `^0.1`  | `master` | `^4.0`, `^5.0`   | `>=8.2` |
 
 ## Development
 

@@ -123,6 +123,10 @@ final class CriteriaApplicator
 	/**
 	 * Converts a composite expression to Nextras findBy conditions.
 	 *
+	 * Each sub-expression becomes a separate nested array prefixed by the logical
+	 * operator, so repeated fields (e.g. two "status!=" conditions) do not overwrite
+	 * each other and nested OR/AND groups keep their meaning.
+	 *
 	 * @return array<mixed>
 	 */
 	private function convertCompositeExpression(CompositeExpression $expression): array
@@ -133,35 +137,17 @@ final class CriteriaApplicator
 			return [];
 		}
 
-		$conditions = [];
+		$operator = $expression->getType() === CompositeExpression::TYPE_OR
+			? ICollection::OR
+			: ICollection::AND;
+
+		$conditions = [$operator];
 
 		foreach ($expressions as $expr) {
-			$converted = $this->convertExpression($expr);
-			$conditions = array_merge($conditions, $converted);
-		}
-
-		if ($expression->getType() === CompositeExpression::TYPE_OR) {
-			return [ICollection::OR, ...$this->convertExpressionsForOr($expressions)];
+			$conditions[] = $this->convertExpression($expr);
 		}
 
 		return $conditions;
-	}
-
-	/**
-	 * Converts expressions for OR condition (each expression becomes a separate array).
-	 *
-	 * @param Expression[] $expressions
-	 * @return array<mixed>
-	 */
-	private function convertExpressionsForOr(array $expressions): array
-	{
-		$result = [];
-
-		foreach ($expressions as $expr) {
-			$result[] = $this->convertExpression($expr);
-		}
-
-		return $result;
 	}
 
 }
