@@ -19,6 +19,13 @@ Install package using composer.
 composer require contributte/nextras-criteria
 ```
 
+The `Criteria`, `Ordering` and expression classes have no dependencies. To apply criteria to collections
+with `CriteriaApplicator`, install [Nextras ORM](https://nextras.org/orm) `^4.0` or `^5.0` as well.
+
+```bash
+composer require nextras/orm
+```
+
 ## Usage
 
 ### Basic usage
